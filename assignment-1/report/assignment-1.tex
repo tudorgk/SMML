@@ -130,7 +130,7 @@ The major axes of the ellipse are defined by the eigenvectors of the covariance 
 \section*{I.3 Classification}
 \subsection*{I.3.1 Nearest neighbor}
  
-The kNN function is applied for K = {1, 3, 5}. As we can see from Table 1, the best results are for K = 3. The kNN function starts out by calculating the distances for each point in the test data relative ti the train data points. After that we sort the rows by distance and create a counting vector that holds the K number of points that are closest to the current analyzed point. We check then the highest count in the vector and calculate the empirical risk by checking the values from the test data set.\\
+The kNN function is applied for K = \{1, 3, 5\}. The kNN function starts out by calculating the distances for each point in the test data relative ti the train data points. After that we sort the rows by distance and create a counting vector that holds the K number of points that are closest to the current analyzed point. We check then the highest count in the vector and calculate the empirical risk by checking the values from the test data set.\\
 
 \begin{table}[h]
 \begin{center}
@@ -145,8 +145,38 @@ The kNN function is applied for K = {1, 3, 5}. As we can see from Table 1, the b
 \end{center}
 \end{table}
 
-\subsection*{I.3.2 Hyperparameter selection using cross-validation}
+\subsection*{I.3.2 Hyper-parameter selection using cross-validation}
 
+For the cross validation we split the train data matrix into 5 parts. We took a k from 1 to 25 with step set to 2 and applied the cross validation algorithm like so:
+
+\begin{itemize}
+\item
+We exclude one part at a time from the train matrix and apply the kNN function on the part left out as the test data.
+\item 
+We calculate the average k and add it to the kRiskMatrix.
+\item
+The last step searches for the minimum risk for a given k (k-best).
+\item
+In our case, the best value of k should be 3.
+\end{itemize}
+
+The entire kRiskMatrix can be seen in Table 2.\\
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|
+>{\columncolor[HTML]{333333}}c |c|c|c|c|c|c|c|c|c|c|c|c|l|}
+\hline
+{\color[HTML]{FFFFFF} \textbf{K}}    & 1    & 3    & 5    & 7    & 9    & 11   & 13   & 15   & 17   & 19   & 21   & 23   & 25   \\ \hline
+{\color[HTML]{FFFFFF} \textbf{Risk}} & 0.22 & 0.20 & 0.25 & 0.22 & 0.22 & 0.22 & 0.22 & 0.21 & 0.21 & 0.22 & 0.21 & 0.22 & 0.21 \\ \hline
+\end{tabular}
+\caption{Number of neighbors as suggested by hyperparameter selection}
+\label{Number of neighbors as suggested by hyperparameter selection}
+\end{center}
+\end{table}
 
 
 \end{document}               % End of document.

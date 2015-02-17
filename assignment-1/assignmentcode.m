@@ -192,7 +192,7 @@ end
 riskSum = riskSum / size(TestMat,1);
 
 %%
-
+%Exercise 3.2
 trainFileID = fopen('IrisTrain2014.dt','r');
 formatSpec = '%f %f %d';
 sizeTrainMat = [3 Inf];
