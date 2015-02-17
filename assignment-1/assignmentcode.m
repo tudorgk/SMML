@@ -25,15 +25,38 @@ plot(z(:,1),z(:,2),'b.');
 %%
 %Exercise 2.3
 %calcualte mean
+
+mu = [1 2];
+sigma = [0.3 0.2; 0.2 0.2];
+R = chol(sigma,'lower');
+z = repmat(mu',1,100) + R*randn(100,2)';
+z=z';
+
+plot(z(:,1),z(:,2),'b.');
+
 s = sum(z);
 m = s/size(z,1);
 
 hold on; plot(m(:,1),m(:,2),'r.');hold off;
 hold on; plot(mu(:,1),mu(:,2),'g.');hold off;
 
-
+%%
 %Exercise 2.4
 %calculate covariance
+mu = [1 2];
+sigma = [0.3 0.2; 0.2 0.2];
+R = chol(sigma,'lower');
+z = repmat(mu',1,100) + R*randn(100,2)';
+z=z';
+
+plot(z(:,1),z(:,2),'b.');
+
+s = sum(z);
+m = s/size(z,1);
+
+hold on; plot(m(:,1),m(:,2),'r.');hold off;
+hold on; plot(mu(:,1),mu(:,2),'g.');hold off;
+
 covariance = cov(z);
 %covariance=sigma;
 [eigenvec, eigenval] = eig(covariance);
@@ -106,7 +129,8 @@ hold on; plot([m(1) m(1)+k90(2)*eigenvec90(2,1)],[m(2) m(2)+k90(2)*eigenvec90(2,
 
 
 %%
-%
+%Excercise 3.1
+
 trainFileID = fopen('IrisTrain2014.dt','r');
 formatSpec = '%f %f %d';
 sizeTrainMat = [3 Inf];
@@ -120,29 +144,27 @@ TestMat = fscanf(testFileID,formatSpec,sizeTestMat);
 TestMat = TestMat';
 
 
-% figure;
-
+figure;
 
 %display test input
-% for i = 1:size(TrainMat,1)
-%     flower = TrainMat(i,:);
-%     if(flower(3) == 0)
-%         hold on; plot(flower(:,1),flower(:,2),'b.');hold off;
-%     end
-%     
-%     if(flower(3) == 1)
-%         hold on; plot(flower(:,1),flower(:,2),'r.');hold off;
-%     end
-%     
-%     if(flower(3) == 2)
-%         hold on; plot(flower(:,1),flower(:,2),'y.');hold off;
-%     end
-%     
-% end
-% 
+for i = 1:size(TrainMat,1)
+    flower = TrainMat(i,:);
+    if(flower(3) == 0)
+        hold on; plot(flower(:,1),flower(:,2),'b.');hold off;
+    end
+    
+    if(flower(3) == 1)
+        hold on; plot(flower(:,1),flower(:,2),'r.');hold off;
+    end
+    
+    if(flower(3) == 2)
+        hold on; plot(flower(:,1),flower(:,2),'y.');hold off;
+    end
+    
+end
 
 
-K = 1;
+K = 5;
 
 riskSum = 0;
 
