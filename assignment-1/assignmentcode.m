@@ -227,16 +227,90 @@ for k = 1:2:25
 
 end
 
-    kBestIndex = find(kRiskMatrix == min(kRiskMatrix(2)));
-    kBest = kRiskMatrix(kBestIndex,1);
+[minVal minInd] = min(kRiskMatrix);
+kBest = kRiskMatrix(minInd(2),1);
     
-%%
+eNewRisk = kNN(kBest,TrainMatNormalized,TestMatNormlaized);
 
+%%
+%Excerise 3.3
+clearvars;
 
 trainFileID = fopen('IrisTrain2014.dt','r');
 formatSpec = '%f %f %d';
 sizeTrainMat = [3 Inf];
 TrainMat = fscanf(trainFileID,formatSpec,sizeTrainMat);
 TrainMat=TrainMat';
+
+testFileID = fopen('IrisTest2014.dt','r');
+formatSpec = '%f %f %d';
+sizeTestMat = [3 Inf];
+TestMat = fscanf(testFileID,formatSpec,sizeTestMat);
+TestMat = TestMat';
+
+
+TrainMat2 = TrainMat(:,1:2);
+
+%calcualte mean
+s = sum(TrainMat2);
+m = s/size(TrainMat2,1);
+
+%calculate standard deviation
+stdDev = [0 0];
+
+for i = 1 : size(TrainMat2,1)
+    x = TrainMat2(i,1);
+    y = TrainMat2(i,2);
+    stdDev = stdDev + [power(x-m(1),2) , power(y-m(2),2)];
+end
+
+stdDev = [sqrt(stdDev(1)/size(TrainMat2,1)), sqrt(stdDev(2)/size(TrainMat2,1))];
+
+%normalize train set
+TrainMatNormlaized = zeros(size(TrainMat2));
+
+for i = 1 : size(TrainMat2,1)
+    TrainMatNormalized(i,:) = (TrainMat2(i,:) - m)./stdDev;
+end
+
+TrainMatNormalized = [TrainMatNormalized, TrainMat(:,3)];
+
+%apply exercise 2.2.1 with normalized train data
+S = 5;
+
+kRiskMatrix = [];
+
+blockDimension = int32(size(TrainMatNormalized,1)/S);
+
+for k = 1:2:25
+    
+    kAverage = 0;
+    
+   for s = 1:S
+        Test = TrainMatNormalized((s-1)*blockDimension + 1:s*blockDimension,:);
+        Train = TrainMatNormalized;
+        Train((s-1)*blockDimension + 1:s*blockDimension,:) = [];
+        kAverage = kAverage + kNN(k,Train, Test); 
+   end
+   
+   new_row =[k kAverage/5] ; 
+   kRiskMatrix = [kRiskMatrix ; new_row];
+
+end
+
+[minVal minInd] = min(kRiskMatrix);
+kBest = kRiskMatrix(minInd(2),1);
+
+%normalize train set
+TestMat2 = TestMat(:,1:2);
+TestMatNormlaized = zeros(size(TestMat2));
+
+for i = 1 : size(TestMat2,1)
+    TestMatNormlaized(i,:) = (TestMat2(i,:) - m)./stdDev;
+end
+
+TestMatNormlaized = [TestMatNormlaized, TestMat(:,3)];
+
+eNewRisk = kNN(kBest,TrainMatNormalized,TestMatNormlaized);
 
 
