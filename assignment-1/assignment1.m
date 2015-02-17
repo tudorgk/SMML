@@ -25,3 +25,4 @@ sigma = [0.3 0.2; 0.2 0.2];
 R = chol(sigma,'lower');
 z = repmat(mu,100,1) + randn(100,2)*R;
 plot(z(:,1),z(:,2),'.');
+
