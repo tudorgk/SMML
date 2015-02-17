@@ -1,7 +1,7 @@
 function [ Ox, Oy ] = gaussian1d( m,d )
 %UNTITLED3 Summary of this function goes here
 %   Detailed explanation goes here
-Ox = [(m-d*5):0.1:(m+d*5)];
+Ox = (m-d*5):0.1:(m+d*5);
 Oy = zeros(size(Ox));
 
 

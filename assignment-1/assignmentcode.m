@@ -1,8 +1,13 @@
 
 %Exercise 2.1
-[Ox,Oy] = gaussian1d(2,3);
+[Ox1 , Oy1] = gaussian1d(-1,1);
+[Ox2 , Oy2] = gaussian1d(0,2);
+[Ox3 , Oy3] = gaussian1d(2,3);
 
-plot(Ox,Oy,'b');
+plot(Ox1, Oy1,'r');
+hold on; plot(Ox2, Oy2,'b'); hold off;
+hold on; plot(Ox3, Oy3,'g'); hold off;
+legend('(mu, sigma) = (-1,1)','(mu, sigma) = (0,2)','(mu, sigma) = (2,3)')
 
 %%
 %Exercise 2.2
@@ -17,6 +22,7 @@ z=z';
 
 plot(z(:,1),z(:,2),'b.');
 
+%%
 %Exercise 2.3
 %calcualte mean
 s = sum(z);
@@ -42,9 +48,14 @@ hold on; plot([m(1) m(1)+k(2)*eigenvec(2,1)],[m(2) m(2)+k(2)*eigenvec(2,2)],'r-'
 figure;
 mu = [1 2];
 sigma = [0.3 0.2; 0.2 0.2];
-r30 = [cos(30) -sin(30); sin(30) cos(30)];
-r60 = [cos(60) -sin(60); sin(60) cos(60)];
-r90 = [cos(90) -sin(90); sin(90) cos(90)];
+
+rad30 = 30*pi/180;
+rad60 = 60*pi/180;
+rad90 = 90*pi/180;
+
+r30 = [cos(rad30) -sin(rad30); sin(rad30) cos(rad30)];
+r60 = [cos(rad60) -sin(rad60); sin(rad60) cos(rad60)];
+r90 = [cos(rad90) -sin(rad90); sin(rad90) cos(rad90)];
 sigma30 = r30 * sigma *inv(r30) ;
 sigma60 = r60 * sigma *inv(r60) ;
 sigma90 = r90 * sigma *inv(r90) ;
@@ -65,6 +76,7 @@ z90=z90';
 plot(z30(:,1),z30(:,2),'b.');
 hold on;plot(z60(:,1),z60(:,2),'y.');hold off;
 hold on;plot(z90(:,1),z90(:,2),'r.');hold off;
+
 
 %Exercise 2.4
 %calculate covariance
@@ -195,3 +207,14 @@ end
 
     kBestIndex = find(kRiskMatrix == min(kRiskMatrix(2)));
     kBest = kRiskMatrix(kBestIndex,1);
+    
+%%
+
+
+trainFileID = fopen('IrisTrain2014.dt','r');
+formatSpec = '%f %f %d';
+sizeTrainMat = [3 Inf];
+TrainMat = fscanf(trainFileID,formatSpec,sizeTrainMat);
+TrainMat=TrainMat';
+
+
