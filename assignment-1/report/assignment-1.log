@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  17 FEB 2015 22:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  25 FEB 2015 17:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -900,7 +900,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 112--113
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--117
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
 
  []
 
@@ -909,24 +909,33 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.117 
-       <./img/i22.png (PNG copy)>] <img/i24.png, id=30, 1063.975pt x 722.7pt>
-File: img/i24.png Graphic file (type png)
+l.116 
+       <./img/i22.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 124--125
 
-<use img/i24.png>
-Package pdftex.def Info: img/i24.png used on input line 120.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 126--127
+
+ []
+
+<img/i24.png, id=30, 1063.975pt x 722.7pt>
+File: img/i24.png Graphic file (type png)
+ <use img/i24.png>
+Package pdftex.def Info: img/i24.png used on input line 130.
 (pdftex.def)             Requested size: 319.19496pt x 216.81166pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/i24b.png, id=31, 1431.3475pt x 885.3075pt>
+<img/i24b.png, id=31, 2507.3675pt x 1206.5075pt>
 File: img/i24b.png Graphic file (type png)
  <use img/i24b.png>
-Package pdftex.def Info: img/i24b.png used on input line 126.
-(pdftex.def)             Requested size: 429.40756pt x 265.5943pt.
+Package pdftex.def Info: img/i24b.png used on input line 136.
+(pdftex.def)             Requested size: 501.46461pt x 241.29723pt.
 
-Overfull \hbox (17.46767pt too wide) in paragraph at lines 126--127
+Overfull \hbox (89.52472pt too wide) in paragraph at lines 136--137
  [][] 
  []
 
@@ -938,50 +947,45 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.130 \section
+l.140 \section
               *{I.3 Classification} <./img/i23.png (PNG copy)>] [4pdfTeX warnin
 g (ext4): destination with the same identifier (name{figure.4}) has been alread
 y used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.130 \section
+l.140 \section
               *{I.3 Classification}pdfTeX warning (ext4): destination with the 
 same identifier (name{figure.5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.130 \section
+l.140 \section
               *{I.3 Classification} <./img/i24.png (PNG copy)> <./img/i24b.png 
 (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 154.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 165.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 154.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 165.
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--164
+Underfull \hbox (badness 10000) in paragraph at lines 174--175
 
  []
 
 
-Overfull \hbox (15.53423pt too wide) in paragraph at lines 170--176
+Overfull \hbox (15.53423pt too wide) in paragraph at lines 181--187
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 183--184
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 185--186
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
 
  []
 
@@ -992,52 +996,90 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.186 
-      pdfTeX warning (ext4): destination with the same identifier (name{table.2
-}) has been already used, duplicate ignored
+l.196 T
+       he means and variances for the untransformed data are shown here:\\pdfTe
+X warning (ext4): destination with the same identifier (name{table.2}) has been
+ already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.186 
-      ] 
+l.196 T
+       he means and variances for the untransformed data are shown here:\\]
+Underfull \hbox (badness 10000) in paragraph at lines 196--197
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--226
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 227--228
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 259--260
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 275--276
+
+ []
+
+
 AED: lastpage setting LastPage
-[6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 187.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 187.
+[6pdfTeX warning (ext4): destination with the same identifier (name{table.3}) h
+as been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.277 \end{document}
+                                   % End of document.]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 277.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 277.
  (./assignment-1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 187.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 187.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 277.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 277.
 Package rerunfilecheck Info: File `assignment-1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 187.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 277.
  ) 
 Here is how much of TeX's memory you used:
- 11045 strings out of 493117
- 153320 string characters out of 6135433
- 313646 words of memory out of 5000000
- 14310 multiletter control sequences out of 15000+600000
+ 11051 strings out of 493117
+ 153393 string characters out of 6135433
+ 312646 words of memory out of 5000000
+ 14315 multiletter control sequences out of 15000+600000
  16789 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,9n,43p,797b,350s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,11n,43p,797b,348s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
-sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
-/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
-local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/lo
-cal/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/loca
-l/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/
-texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/te
-xlive/2014/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texl
-ive/2014/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on assignment-1.pdf (6 pages, 216413 bytes).
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
+r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
+local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
+ocal/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/loc
+al/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local
+/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/t
+exlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/tex
+live/2014/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texli
+ve/2014/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on assignment-1.pdf (6 pages, 244655 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
- 23 named destinations out of 1000 (max. 500000)
+ 104 PDF objects out of 1000 (max. 8388607)
+ 79 compressed objects within 1 object stream
+ 24 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
