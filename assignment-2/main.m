@@ -6,19 +6,9 @@ clear;fprintf('--------- II.1.1 ---------\n');
 trainData = importdata('data/IrisTrain2014.dt');
 testData = importdata('data/IrisTest2014.dt');
 
-out = lda(trainData);
-
-disp(out);
-
-fprintf('Training data:\n');
-C = arrayfun(@(x, y) out([x y]), trainData(:, 1), trainData(:, 2));
-acc = 1 - sum(trainData(:, 3) ~= C)/length(C);
-fprintf('\taccuracy = %1.2f\n\n', acc);
-
-fprintf('Test data:\n');
-C = arrayfun(@(x, y) out([x y]), testData(:, 1), testData(:, 2));
-acc = 1 - sum(testData(:, 3) ~= C)/length(C);
-fprintf('\taccuracy = %1.2f\n\n', acc);
+[trainAcc, testAcc] = my_lda(trainData, testData);
+disp (trainAcc);
+disp (testAcc);
 
 %%
 % II.1.2
@@ -37,29 +27,78 @@ normVars = var(normTrainData(:,1:2), 0, 1)
 
 normTestData = my_normalize(testData, Means, Stds);
 
-getClassFun = lda(normTrainData);
-
-fprintf('Training data, normalized:\n');
-C = arrayfun(@(x, y) getClassFun([x y]), normTrainData(:, 1), normTrainData(:, 2));
-acc = 1 - sum(trainData(:, 3) ~= C)/length(C);
-fprintf('\taccuracy = %1.2f\n\n', acc);
-
-fprintf('Test data, normalized:\n');
-C = arrayfun(@(x, y) getClassFun([x y]), normTestData(:, 1), normTestData(:, 2));
-acc = 1 - sum(testData(:, 3) ~= C)/length(C);
-fprintf('\taccuracy = %1.2f\n\n', acc);
-
-%%
-% II.1.1
-%
-clear;fprintf('--------- II.1.3 ---------\n');
-
-trainData = importdata('data/IrisTrain2014.dt');
-testData = importdata('data/IrisTest2014.dt');
-
-[trainAcc testAcc] = my_lda(trainData, testData);
+[trainAcc, testAcc] = my_lda(normTrainData, normTestData);
 disp (trainAcc);
 disp (testAcc);
 
+%%
+% II.2.1
+%
+clear;fprintf('--------- II.2.1 ---------\n');
 
+trainData = importdata('data/sunspotsTrainStatML.dt');
+testData = importdata('data/sunspotsTestStatML.dt');
+l = length(trainData);
+testYears = 1916:2011;
+
+%Selection 1
+Phi1 = horzcat(ones(l,1),trainData(:,3),trainData(:,4));
+wML1 = my_wML(Phi1, trainData(:,6));
+X1 = testData (:,3:4);
+prediction1 = my_lmfunction(wML1,X1);
+
+%RMS 1
+rms1 = my_rms(prediction1,testData(:,6));
+
+figure;
+hold on;
+title('Selection 1 - measured(blue) vs. predicted(red) 1916 - 2011','FontSize', 15);
+legend('Actual sunspots', 'Predicted sunspots');
+plot(testYears, prediction1, 'r', testYears, testData(:,6), 'b');
+hold off;
+
+%Selection 2
+Phi2 = horzcat(ones(l,1),trainData(:,5));
+wML2 = my_wML(Phi2, trainData(:,6));
+X2 = testData (:,5);
+prediction2 = my_lmfunction(wML2,X2);
+
+%RMS 2
+rms2 = my_rms(prediction2,testData(:,6));
+
+%training and test set with predicted target variables plot
+figure;
+hold on;
+title('Selection 2 - training and test set with predicted target variables.','FontSize', 15);
+legend('Training data', 'Real targets', 'Predicted targets');
+plot(trainData(:,5),trainData(:,6),'rx', testData(:,5), testData(:,6), 'gx', testData(:,5), prediction2, 'bx');
+hold off;
+
+figure;
+hold on;
+title('Selection 2 - measured(blue) vs. predicted(red) 1916 - 2011','FontSize', 15);
+legend('Actual sunspots', 'Predicted sunspots');
+plot(testYears, prediction2, 'r', testYears, testData(:,6), 'b');
+hold off;
+
+%Selection 3
+Phi3 = horzcat(ones(l,1),trainData(:,1),trainData(:,2),trainData(:,3),trainData(:,4),trainData(:,5));
+wML3 = my_wML(Phi3, trainData(:,6));
+X3 = testData (:,1:5);
+prediction3 = my_lmfunction(wML3,X3);
+
+%RMS 1
+rms3 = my_rms(prediction3,testData(:,6));
+
+figure;
+hold on;
+title('Selection 3 - measured(blue) vs. predicted(red) 1916 - 2011','FontSize', 15);
+legend('Actual sunspots', 'Predicted sunspots');
+plot(testYears, prediction3, 'r', testYears, testData(:,6), 'b');
+hold off;
+
+%%
+% II.2.2
+%
+clear;fprintf('--------- II.2.2 ---------\n');
 
