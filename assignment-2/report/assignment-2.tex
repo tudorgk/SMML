@@ -100,4 +100,50 @@ We normalized both data sets and applied the LDA algorithm. We noticed that we g
 
 \section*{II.2 Regression: Sunspot Prediction}
 
+\subsection*{II.2.1 Maximum likelihood solution}
+
+We used 3.15 and 3.16 to obtain the construct the design matrixes and train each of these models on the training set by finding the maximum likelihood estimate for the 3 selections. We have plotted for each selection the measured values from the test set and the predicted ones from our algorithm. As we can see from the 3 graphs the best results are obtained from considering all parameters.\\
+
+The RMSs for each selection are: \\
+\[ RMS_1 = 35.4651\]
+\[ RMS_2 = 28.8398\]
+\[ RMS_3 = 18.7700\]
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=.4]{img/pred1}
+\caption{Selection 1 - measured(blue) vs. predicted(red) 1916 - 2011 \label{overflow}}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=.4]{img/pred2}
+\caption{Selection 3 - measured(blue) vs. predicted(red) 1916 - 2011 \label{overflow}}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=.4]{img/pred3}
+\caption{Selection 3 - measured(blue) vs. predicted(red) 1916 - 2011 \label{overflow}}
+\end{figure}
+
+For the $2^{nd}$ selection we have plotted the predicted values shown in Figure 4. Because we have only one set of parameters we have only a $1^{st}$ degree equation which is shown as a straight line. \\
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=.4]{img/sel2-pred}
+\caption{Predicted values for Selection 2 \label{overflow}}
+\end{figure}
+
+\subsection*{II.2.2 Maximum a posteriori solution}
+
+We have implemented the Maximum a posteriori algorithm using (3.52-3.54) equations. We used $\beta = 1$ and we chose $\alpha$ with values between $10^{-10}$ and $10^{10}$. As we can see from Figure 5 with the values of RMS spanned across our alpha interval the best outcome is set by using Selection 3. We will analyze only the $\alpha$ values for selection 3 further. Between $10^{-10}$ and $10^{-2}$ we have the same RMS as the Maximum likelihood solution and for $10^{-1}$ the RMS is lower and the best estimation we get from $\alpha$ set to $10$. Almost the same happens with the other selections, only on different $\alpha$ values.\\
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=.4]{img/rms}
+\caption{RMS error plotted over alpha values between $10^{-10}$ and $10^{10}$  \label{overflow}}
+\end{figure}
+
 \end{document}               % End of document.

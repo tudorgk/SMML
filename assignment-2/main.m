@@ -152,7 +152,7 @@ for i=1:length(alphas)
 end
 
 figure;
-title('RMS error plotted over alpha values between 10^-10 and 10^10','FontSize',20);
+title('RMS error plotted over alpha values between 10^-10 and 10^10','FontSize',15);
 semilogx(10.^(-10:1:10), rms1, 'r', 'LineWidth', 2);
 hold on;
 semilogx(10.^(-10:1:10), rms2, 'g', 'LineWidth', 2);
