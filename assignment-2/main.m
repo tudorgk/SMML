@@ -7,8 +7,12 @@ trainData = importdata('data/IrisTrain2014.dt');
 testData = importdata('data/IrisTest2014.dt');
 
 [trainAcc, testAcc] = my_lda(trainData, testData);
-disp (trainAcc);
-disp (testAcc);
+
+trainError = 1 - trainAcc;
+testError = 1 - testAcc;
+
+disp (trainError);
+disp (testError);
 
 %%
 % II.1.2
@@ -22,14 +26,18 @@ Means = mean(trainData(:,1:2), 1);
 Stds = std(trainData(:,1:2), 0, 1);
 
 normTrainData = my_normalize(trainData, Means, Stds);
-normMeans = mean(normTrainData(:,1:2), 1)
-normVars = var(normTrainData(:,1:2), 0, 1)
+normMeans = mean(normTrainData(:,1:2), 1);
+normVars = var(normTrainData(:,1:2), 0, 1);
 
 normTestData = my_normalize(testData, Means, Stds);
 
 [trainAcc, testAcc] = my_lda(normTrainData, normTestData);
-disp (trainAcc);
-disp (testAcc);
+
+trainError = 1 - trainAcc;
+testError = 1 - testAcc;
+
+disp (trainError );
+disp (testError);
 
 %%
 % II.2.1

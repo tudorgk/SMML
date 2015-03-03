@@ -1,0 +1,103 @@
+% This is a sample LaTeX input file.  (Version of 12 August 2004.)
+%
+% A '%' character causes TeX to ignore all remaining text on the line,
+% and is used for comments like this one.
+
+\documentclass{article}      % Specifies the document class
+
+\def\Course{Statistical Methods for Machine Learning}
+\def\Exam{Assignment 2}
+\def\Studentname{
+Tudor Dragan (xlq880)\\
+Nicolae Mariuta (rqt629)\\
+Gabriel Carp (slp670)
+}
+\def\Sub_date{\today}
+                             % The preamble begins here.
+%\title{\bf Principles of Computer Systems Design\\ {\Large Exam}}  % Declares the document's title.
+%\author{Tudor Dragan\\}
+
+\title{\textbf{\Course}\\\textbf{\Exam}}
+\author{\Studentname}
+\date{\Sub_date}      % Deleting this command produces today's date.
+
+\usepackage{verbatimbox}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[]{amsmath}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{moreverb}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc} % font
+\usepackage{program}
+\usepackage[top=1.5in, bottom=1.5in, left=1.4in, right=1.4in]{geometry}
+\usepackage[super]{nth}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{float}
+\usepackage[section]{placeins}
+\usepackage[linesnumbered]{algorithm2e}
+\usepackage[table,xcdraw]{xcolor}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\usepackage[table,xcdraw]{xcolor}
+\lhead{\textbf{\Course}}
+\rhead{\Exam~(Submission: \Sub_date)}
+
+\cfoot{}
+\lfoot{\Studentname}
+\rfoot{\thepage\ of \pageref{LastPage}}
+%\pagestyle{fancy}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\lstset{frame=tb,
+      language=Java,
+      aboveskip=3mm,
+      belowskip=3mm,
+      showstringspaces=false,
+      columns=flexible,
+      basicstyle={\small\ttfamily},
+      numbers=none,
+      numberstyle=\tiny\color{gray},
+      keywordstyle=\color{blue},
+      commentstyle=\color{dkgreen},
+      stringstyle=\color{mauve},
+      breakatwhitespace=true
+      tabsize=3
+}
+\newcommand{\ip}[2]{(#1, #2)}
+                             % Defines \ip{arg1}{arg2} to mean
+                             % (arg1, arg2).
+
+%\newcommand{\ip}[2]{\langle #1 | #2\rangle}
+                             % This is an alternative definition of
+                             % \ip that is commented out.
+
+\begin{document}             % End of preamble and beginning of text.
+
+\maketitle                   % Produces the title.
+
+\section*{II.1 Classification}
+\subsection*{II.1.1 Linear discriminant analysis}
+
+We have implemented the LDA algorithm according to the slides from the Linear Classification lecture. We also checked with the MATLAB \emph{predict} function from the \emph{ClassificationDiscriminant} class and we have similar results with only a $10^{-3}$ error. As expected the train error is lower than the test error\\
+
+\[ 
+train_{ERR} = 0.1500 \]
+
+\[ 
+test_{ERR} = 0.2105 
+\] \\
+
+\subsection*{II.1.2 Linear discriminant analysis}
+
+We normalized both data sets and applied the LDA algorithm. We noticed that we get the same results as the non-normalized data. This would imply that the normalization has no effect on the accuracy of the LDA classifier. This happens because in \[ \delta_k(x) = x^T\Sigma^{-1}\mu_k - 1/2{\mu_k}^T\Sigma^-1\mu_k + ln{Pr( Y = C_k)}\] the data points are multiplied by the covariance inverse and the mean is subtracted, thus doing a normalization inside the classifier. If we would normalize the data before applying the LDA classifier, the mean is 0 and the covariance is $I$ which would imply that we obtain the same results as we did with the non normalized data set.
+
+\subsection*{II.1.3 Bayes optimal classification and probabilistic classification}
+
+\section*{II.2 Regression: Sunspot Prediction}
+
+\end{document}               % End of document.

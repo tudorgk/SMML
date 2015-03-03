@@ -23,7 +23,7 @@ l_k = [length(class0_indexes);
        length(class2_indexes)];
 
 %calulate priors
-priors = l_k ./ length(yTrain)
+priors = l_k ./ length(yTrain);
 
 %separate into classes
 X_0 = xTrain (class0_indexes,:);
@@ -95,6 +95,16 @@ end
 %calculate accuracy for test data
 testAccuracy = 1 - (nnz(predTest - yTest) / length(yTest));
 
+%testing out our work
+% linclass = ClassificationDiscriminant.fit(xTrain,yTrain);
+% pred_train = predict(linclass,xTrain);
+% pred_test = predict(linclass,xTest);
+% 
+% theirAccTrain = 1 - (nnz(pred_train - yTrain) / length(yTrain));
+% theirAccTest = 1 - (nnz(pred_test - yTest) / length(yTest));
+% 
+% disp(theirAccTrain);
+% disp(theirAccTest);
 
 end
 
