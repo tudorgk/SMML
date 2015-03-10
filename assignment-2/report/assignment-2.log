@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  10 MAR 2015 18:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  10 MAR 2015 18:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -885,19 +885,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 114--115
 
  []
 
-<img/pred1.png, id=24, 1015.795pt x 738.76pt>
+<img/pred1.png, id=25, 1015.795pt x 738.76pt>
 File: img/pred1.png Graphic file (type png)
  <use img/pred1.png>
 Package pdftex.def Info: img/pred1.png used on input line 122.
 (pdftex.def)             Requested size: 406.3108pt x 295.49875pt.
 
-<img/pred2.png, id=25, 951.555pt x 693.59125pt>
+<img/pred2.png, id=26, 951.555pt x 693.59125pt>
 File: img/pred2.png Graphic file (type png)
  <use img/pred2.png>
 Package pdftex.def Info: img/pred2.png used on input line 128.
 (pdftex.def)             Requested size: 380.61525pt x 277.43158pt.
 
-<img/pred3.png, id=26, 974.64125pt x 739.76375pt>
+<img/pred3.png, id=27, 974.64125pt x 739.76375pt>
 File: img/pred3.png Graphic file (type png)
  <use img/pred3.png>
 Package pdftex.def Info: img/pred3.png used on input line 134.
@@ -907,7 +907,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 138--139
 
  []
 
-<img/sel2-pred.png, id=27, 910.40125pt x 692.5875pt>
+<img/sel2-pred.png, id=28, 910.40125pt x 692.5875pt>
 File: img/sel2-pred.png Graphic file (type png)
  <use img/sel2-pred.png>
 Package pdftex.def Info: img/sel2-pred.png used on input line 142.
@@ -917,7 +917,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 148--149
 
  []
 
-<img/rms.png, id=28, 997.7275pt x 725.71124pt>
+<img/rms.png, id=29, 997.7275pt x 725.71124pt>
 File: img/rms.png Graphic file (type png)
  <use img/rms.png>
 Package pdftex.def Info: img/rms.png used on input line 152.
@@ -996,7 +996,7 @@ e/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/
 2014/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/20
 14/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2014
 /texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on assignment-2.pdf (7 pages, 348009 bytes).
+Output written on assignment-2.pdf (7 pages, 347959 bytes).
 PDF statistics:
  118 PDF objects out of 1000 (max. 8388607)
  89 compressed objects within 1 object stream
