@@ -42,7 +42,7 @@ for i=1:length(class0_indexes)
     v = xTrain(index,:) - mu0;
     cov0 = cov0 + (v' * v);
 end
-cov0 = cov0 ./ l_k(1);
+
 
 cov1 = zeros(2,2);
 for i=1:length(class1_indexes)
@@ -50,8 +50,6 @@ for i=1:length(class1_indexes)
     v = xTrain(index,:) - mu1;
     cov1 = cov1 + (v' * v);
 end
-cov1 = cov1 ./ l_k(2);
-
 
 cov2 = zeros(2,2);
 for i=1:length(class2_indexes)
@@ -59,9 +57,9 @@ for i=1:length(class2_indexes)
     v = xTrain(index,:) - mu2;
     cov2 = cov2 + (v' * v);
 end
-cov2 = cov2 ./ l_k(3);
 
-covariance = cov0 + cov1 + cov2;
+
+covariance = (cov0 + cov1 + cov2)/ (length(trainData)-3); 
 % disp(covariance);
 % disp(cov(X_0) + cov(X_1) + cov(X_2));
 
@@ -96,15 +94,15 @@ end
 testAccuracy = 1 - (nnz(predTest - yTest) / length(yTest));
 
 %testing out our work
-% linclass = ClassificationDiscriminant.fit(xTrain,yTrain);
-% pred_train = predict(linclass,xTrain);
-% pred_test = predict(linclass,xTest);
-% 
-% theirAccTrain = 1 - (nnz(pred_train - yTrain) / length(yTrain));
-% theirAccTest = 1 - (nnz(pred_test - yTest) / length(yTest));
-% 
-% disp(theirAccTrain);
-% disp(theirAccTest);
+%  linclass = ClassificationDiscriminant.fit(xTrain,yTrain);
+%  pred_train = predict(linclass,xTrain);
+%  pred_test = predict(linclass,xTest);
+%  
+%  theirAccTrain = 1 - (nnz(pred_train - yTrain) / length(yTrain));
+%  theirAccTest = 1 - (nnz(pred_test - yTest) / length(yTest));
+%  
+%  disp(theirAccTrain);
+%  disp(theirAccTest);
 
 end
 
