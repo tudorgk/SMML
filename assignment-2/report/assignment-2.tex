@@ -104,7 +104,7 @@ For the given problem, we have thy hypothesis class
 \[p(y=0, h(x)=1) = p(y=0 \| h(x)=1)p(h(x)=1) = 0.25 * 0.75 = 0.1875\] 
 \[p(y=1, h(x)=0) = p(y=1 \| h(x)=0)p(h(x)=0) = 0.75 * 0.25 = 0.1875\] 
 \[Rp(h) = 0.1875 + 0.1875 = 0.375\] 
-As a conclusion, the risk of this classifier is worse than using the Bayes optimal classifier.\
+As a conclusion, the risk of this classifier is worse than using the Bayes optimal classifier.\\
 \section*{II.2 Regression: Sunspot Prediction}
 
 \subsection*{II.2.1 Maximum likelihood solution}
@@ -152,5 +152,41 @@ We have implemented the Maximum a posteriori algorithm using (3.52-3.54) equatio
 \includegraphics[scale=.4]{img/rms}
 \caption{RMS error plotted over alpha values between $10^{-10}$ and $10^{10}$  \label{overflow}}
 \end{figure}
+
+\subsection*{II.2.3 Weighted sum-of-squares}
+
+According to Equation 3.11:
+
+\[
+log p(t \| w, \beta) = \frac{N}{2}log\beta - \frac{N}{2}log 2\pi - \beta E_D(w) 
+\]
+
+we determine the gradient for $E_D(w)$ and equalize it to $0$
+
+\[
+\nabla E_D(w) =  \sum_{i=1}^{n} r_n\{t_n - w^T \phi(x_n)\}\phi(x_n)^T
+\]
+
+\[
+0 =  \sum_{i=1}^{n} r_nt_n\phi(x_n)^T - r_nw^T(\sum_{i=1}^{n} \phi(x_n)^T)
+\]
+
+\[
+0 = \Phi^TRt - w^T(\Phi^TR\Phi)
+\]
+,where $R = diag(r_1, r_2, ... r_n)$. Solving it for $w$ we get 
+
+\[
+ w = (\Phi^TR\Phi)^{-1}\Phi^TRt
+\]
+
+Given the interpretation in terms of 
+
+\begin{description}
+   \item [(i) data dependent noise variance]\hfill \\
+   We can see that $r_n$ can be considered as an inverse variance vector specific to the data point $(x_n, t_n)$ that can be interpreted as a scaling of $\beta$.
+   \item [(ii) replicated data points]\hfill \\
+   We can say that $r_n$ can represent an effective number of replicated observations of this specific instance $(x_n, t_n)$ particularly if we restrict $r_n$ to be a positive integer.
+\end{description}
 
 \end{document}               % End of document.
